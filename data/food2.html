@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="../includes/css/css/themes/default/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../includes/css/css/themes/default/index.css"/>
+    <script src="../includes/js/jquery.js"></script>
+    <script src="../includes/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        .header {
+            position: fixed;
+            text-align: center;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+        .icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .icon.right {
+            left: auto;
+            right: 30px;
+        }
+
+        .total-entries {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff007b, #007bff, #00ff88);
+            background-size: 300% 300%;
+            color: white;
+            padding: 10px;
+            margin: 15px auto;
+            border-radius: 8px;
+            width: 80%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInScale 0.8s ease-in-out, gradientShift 4s infinite linear;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .ui-page,
+        body.dark-mode .ui-panel,
+        body.dark-mode .ui-content {
+            background-color: #121212 !important;
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .ui-btn {
+            background-color: #333 !important;
+            color: #fff !important;
+            border: none;
+        }
+
+        body.dark-mode .total-entries {
+            background: linear-gradient(45deg, #333, #555, #777);
+        }
+
+        body.dark-mode .header {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode a.icon {
+            color: white;
+        }
+
+        .ui-btn1 {
+            border-radius: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="header" class="header">
+            <h1></h1>
+            <a href="#" class="icon" id="menuIcon" onclick="toggleNavbar()">&#9776;</a>
+        </div>
+
+        <div data-role="panel" id="overlaypanel" data-position="left" data-display="overlay">
+            <br><br>
+            <a onclick="window.location.href='home2.html'" class="ui-btn">Home</a>
+            <a href="#translate" data-rel="popup" data-position-to="window" class="ui-btn">Translate</a>
+            <div data-role="popup" id="translate" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a  onclick="window.location.href='about.html'"   id="closePopup" class="ui-btn ui-btn1" data-theme="a">English</a>
+                <a  href="#" id="disableDarkMode" onclick="$('#translate').popup('close');"  class="ui-btn ui-btn1" data-theme="a">Tagalog</a>
+            </div>
+            <a onclick="window.location.href='about2.html'" class="ui-btn">About</a>
+            <a href="#darkModePopup" data-rel="popup" data-position-to="window" class="ui-btn">Dark Mode</a>
+            <div data-role="popup" id="darkModePopup" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a href="#" id="disableDarkMode" class="ui-btn ui-btn1" data-theme="a">Light Mode</a>
+                <a href="#" id="enableDarkMode" class="ui-btn ui-btn1" data-theme="a">Dark Mode</a>
+            </div>
+            <a id="exitConfirmButton" class="ui-btn"  data-rel="popup" data-position-to="window" data-transition="pop">Exit</a>
+            <div data-role="popup" id="popupCloseRight" class="ui-content">
+                <p>Are you sure you want to Exit?</p>
+               <a href="#" id="exitButton"  class="ui-btn ui-btn1" data-role="button" data-theme="a">Yes</a>
+                <a href="#" id="closePopup" class="ui-btn ui-btn1" data-role="button" data-theme="a">No</a>
+                </div>
+        </div>
+        <br><br>
+        <hr>
+        <div role="main" class="ui-content" style="text-align: center;">
+            <a class="animated-heading" href="#popup1" data-rel="popup" data-position-to="window" data-transition="fade">
+                <img src="../includes/img/f1.jpg" height="200" width="200px" alt="">
+            </a>
+            <center>
+                <a href="#popup1" data-rel="popup" data-position-to="window" data-transition="fade"
+                style="text-decoration: none; color: rgb(75, 72, 72);"
+                 >
+                    <p class="animated-heading">More Details</p>
+                </a>
+                <!-- <div class="star-rating rate1" data-item="b1">
+                    <input type="hidden" id="rating-value-b1" name="rating" value="0">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div> -->
+            </center>            
+            <div data-role="popup" id="popup1" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+                <div style="padding: 10px;">
+                    <img  class="popphoto " src="../includes/img/f1.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <center>
+                        <p >
+                            Spicy Bilabid P300
+                        </p>
+                    </center>
+                </div>
+            </div>
+            <hr>
+            <a class="animated-heading" href="#popup2" data-rel="popup" data-position-to="window" data-transition="fade">
+                <img src="../includes/img/f2.jpg" height="200" width="200px" alt="">
+            </a>
+            <center>
+                <a href="#popup2" data-rel="popup" data-position-to="window" data-transition="fade"
+                style="text-decoration: none; color: rgb(75, 72, 72);"
+                 >
+                    <p class="animated-heading">More Details</p>
+                </a>
+            </center>            
+            <div data-role="popup" id="popup2" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+                <div style="padding: 10px;">
+                    <img class="popphoto" src="../includes/img/f2.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <center>
+                        <p class="animated-heading" >
+                            Crispy Coconut Shrimp P280
+                        </p>
+                    </center>
+                </div>
+            </div>
+            <hr>
+            <a class="animated-heading" href="#popup3" data-rel="popup" data-position-to="window" data-transition="fade">
+                <img src="../includes/img/f3.jpg" height="200" width="200px" alt="">
+            </a>
+            <center>
+                <a href="#popup3" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+                    <p class="animated-heading">More Details</p>
+                </a>
+
+            </center>       
+            <div data-role="popup" id="popup3" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+                <div style="padding: 10px;">
+                    <img class="popphoto" src="../includes/img/f3.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <center>
+                        <p >
+                            Crispy Coconut Shrimp P280
+                        </p>
+                    </center>
+                </div>
+            </div>
+            <hr>
+                <a class="animated-heading" href="#popup4" data-rel="popup" data-position-to="window" data-transition="fade">
+                    <img src="../includes/img/f4.jpg" height="200" width="200px" alt="">
+                </a>
+                <center>
+                    <a href="#popup4" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+                        <p class="animated-heading">More Details</p>
+                    </a>
+
+                </center>
+            <div data-role="popup" id="popup4" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+                <div style="padding: 10px;">
+                    <img class="popphoto" src="../includes/img/f4.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <center>
+                        <p >
+                            Crab Omelette P140
+
+                        </p>
+                    </center>
+                </div>
+            </div>
+            <hr>
+            <a class="animated-heading" href="#popup5" data-rel="popup" data-position-to="window" data-transition="fade">
+                <img src="../includes/img/f5.jpg" height="200" width="200px" alt="">
+            </a>
+            <center>
+                <a href="#popup5" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+                    <p class="animated-heading">More Details</p>
+                </a>
+
+            </center>
+        <div data-role="popup" id="popup5" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+            <div style="padding: 10px;">
+                <img class="popphoto" src="../includes/img/f5.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                <center>
+                    <p >
+                        Chewy Crispy Pork P220
+                    </p>
+                </center>
+            </div>
+        </div>
+        <hr>
+        <a class="animated-heading" href="#popup6" data-rel="popup" data-position-to="window" data-transition="fade">
+            <img src="../includes/img/f6.jpg" height="200" width="200px" alt="">
+        </a>
+        <center>
+            <a href="#popup6" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+                <p class="animated-heading">More Details</p>
+            </a>
+
+        </center>
+    <div data-role="popup" id="popup6" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+        <div style="padding: 10px;">
+            <img class="popphoto" src="../includes/img/f6.jpg" style="max-height: 512px; width: 100%; height: auto;">
+            <center>
+                <p >
+                    Crab Omelette P140
+                </p>
+            </center>
+        </div>
+    </div>
+    <hr>
+    <a class="animated-heading" href="#popup7" data-rel="popup" data-position-to="window" data-transition="fade">
+        <img src="../includes/img/f7.jpg" height="200" width="200px" alt="">
+    </a>
+    <center>
+        <a href="#popup7" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+            <p class="animated-heading">More Details</p>
+        </a>
+
+    </center>
+<div data-role="popup" id="popup7" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+    <div style="padding: 10px;">
+        <img class="popphoto" src="../includes/img/f7.jpg" style="max-height: 512px; width: 100%; height: auto;">
+        <center>
+            <p >
+                Kalamaris Original P220
+            </p>
+        </center>
+    </div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup8" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f8.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup8" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup8" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f8.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Kalamaris Sweet & Spicy P160
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup9" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f9.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup9" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup9" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f9.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Crab Omelette P140
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup10" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f10.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup10" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f10.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Pork Sisig P160
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup11" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f11.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup11" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup11" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f11.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Kalamaris Original P220
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup12" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f12.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup12" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup12" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f12.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Chicken Finger Bowl P80
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup13" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f13.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup13" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup13" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f13.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Spicy Binga P160
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup14" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f14.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup14" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup14" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f14.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Spicy Binga P160
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup15" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f15.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup15" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup15" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f15.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Spicy Bilabid P300
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup16" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f16.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup16" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup16" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f16.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Spicy Bilabid P300
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup17" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f17.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup17" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup17" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f17.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Baked Scallop P190
+        </p>
+    </center>
+</div>
+</div>
+<hr>
+<a class="animated-heading" href="#popup18" data-rel="popup" data-position-to="window" data-transition="fade">
+    <img src="../includes/img/f18.jpg" height="200" width="200px" alt="">
+</a>
+<center>
+    <a href="#popup18" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
+        <p class="animated-heading">More Details</p>
+    </a>
+
+</center>
+<div data-role="popup" id="popup18" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
+<div style="padding: 10px;">
+    <img class="popphoto" src="../includes/img/f18.jpg" style="max-height: 512px; width: 100%; height: auto;">
+    <center>
+        <p >
+            Soup No.8 Sea Cucumber P220
+        </p>
+    </center>
+</div>
+</div>
+            <br><br><br><br><br><br><br>
+        </div>
+        <script src="../includes/js/js/index.js"></script>
+        <script type="text/javascript">
+            // Toggle dark mode manually (if needed from elsewhere)
+            function toggleDarkMode() {
+                $('body').toggleClass('dark-mode');
+                if ($('body').hasClass('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+        
+            // Initialize and bind dark mode events
+            $(document).ready(function () {
+                // Apply saved theme on page load
+                if (localStorage.getItem('theme') === 'dark') {
+                    $('body').addClass('dark-mode');
+                }
+        
+                $(document).on('click', '#enableDarkMode', function () {
+                    $('body').addClass('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    $("#darkModePopup").popup("close"); // Close the popup
+                    closePanel();
+                });
+        
+                $(document).on('click', '#disableDarkMode', function () {
+                    $('body').removeClass('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    $("#darkModePopup").popup("close"); // Close the popup
+                    closePanel();
+                });
+            });
+        </script>
+        <script>
+            function toggleNavbar() {
+                var panel = $("#overlaypanel");
+                var icon = $("#menuIcon");
+                if (panel.hasClass("ui-panel-open")) {
+                    panel.panel("close");
+                    icon.removeClass("right");
+                } else {
+                    panel.panel("open");
+                    icon.addClass("right");
+                }
+            }
+            
+        
+            function closePanel() {
+                $("#overlaypanel").panel("close");
+                $("#menuIcon").removeClass("right");
+            }
+        
+            // Reset icon when panel closes manually
+            $(document).on("panelclose", "#overlaypanel", function() {
+                $("#menuIcon").removeClass("right");
+            });
+        </script>
+        
+    </div>
+</body>
+</html> 

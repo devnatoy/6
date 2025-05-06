@@ -140,18 +140,18 @@ body.dark-mode a.icon {
         <div data-role="content" class="animated-heading">
             <input id="searchInput" list="searchOptions" placeholder="Search..." />
             <datalist id="searchOptions">
-              <option value="Milk Tea">
-              <option value="Shake">
-              <option value="Other">
+              <option value="Main Dish">
+              <option value="Food">
+              <option value="Drinks">
             </datalist>
             <script>
               const input = document.getElementById('searchInput');
               input.addEventListener('change', () => {
                 const value = input.value;
                 const links = {
-                    "Milk Tea": "milktea.html",
-                  "Shake": "shake.html",
-                  "Other": "other.html"
+                    "Main Dish": "maindish.html",
+                  "Food": "food.html",
+                  "Drinks": "drinks.html"
                 };
                 if (links[value]) {
                   window.location.href = links[value];
@@ -160,7 +160,7 @@ body.dark-mode a.icon {
             </script>
         <br>
             <div id="extraContent">
-                <p style="font-size: 30px; text-align: center;">Cup of Crowns
+                <p style="font-size: 30px; text-align: center;">Tomgu Food and Drinks Menu
 
                 </p>
             </div>
