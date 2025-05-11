@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="../includes/css/css/themes/default/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../includes/css/css/themes/default/index.css"/>
+    <script src="../includes/js/jquery.js"></script>
+    <script src="../includes/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        .header {
+            position: fixed;
+            text-align: center;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+        .icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .icon.right {
+            left: auto;
+            right: 30px;
+        }
+
+        .total-entries {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff007b, #007bff, #00ff88);
+            background-size: 300% 300%;
+            color: white;
+            padding: 10px;
+            margin: 15px auto;
+            border-radius: 8px;
+            width: 80%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInScale 0.8s ease-in-out, gradientShift 4s infinite linear;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .ui-page,
+        body.dark-mode .ui-panel,
+        body.dark-mode .ui-content {
+            background-color: #121212 !important;
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .ui-btn {
+            background-color: #333 !important;
+            color: #fff !important;
+            border: none;
+        }
+
+        body.dark-mode .total-entries {
+            background: linear-gradient(45deg, #333, #555, #777);
+        }
+
+        body.dark-mode .header {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode a.icon {
+            color: white;
+        }
+
+        .ui-btn1 {
+            border-radius: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="header" class="header">
+            <h1></h1>
+            <a href="#" class="icon" id="menuIcon" onclick="toggleNavbar()">&#9776;</a>
+        </div>
+
+        <div data-role="panel" id="overlaypanel" data-position="left" data-display="overlay">
+            <br><br>
+            <a onclick="window.location.href='home2.html'" class="ui-btn">Home</a>
+            <a href="#translate" data-rel="popup" data-position-to="window" class="ui-btn">Translate</a>
+            <div data-role="popup" id="translate" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a  onclick="window.location.href='about.html'"   id="closePopup" class="ui-btn ui-btn1" data-theme="a">English</a>
+                <a  href="#" id="disableDarkMode" onclick="$('#translate').popup('close');"  class="ui-btn ui-btn1" data-theme="a">Tagalog</a>
+            </div>
+            <a onclick="window.location.href='about2.html'" class="ui-btn">About</a>
+            <a href="#darkModePopup" data-rel="popup" data-position-to="window" class="ui-btn">Dark Mode</a>
+            <div data-role="popup" id="darkModePopup" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a href="#" id="disableDarkMode" class="ui-btn ui-btn1" data-theme="a">Light Mode</a>
+                <a href="#" id="enableDarkMode" class="ui-btn ui-btn1" data-theme="a">Dark Mode</a>
+            </div>
+            <a id="exitConfirmButton" class="ui-btn"  data-rel="popup" data-position-to="window" data-transition="pop">Exit</a>
+            <div data-role="popup" id="popupCloseRight" class="ui-content">
+                <p>Are you sure you want to Exit?</p>
+               <a href="#" id="exitButton"  class="ui-btn ui-btn1" data-role="button" data-theme="a">Yes</a>
+                <a href="#" id="closePopup" class="ui-btn ui-btn1" data-role="button" data-theme="a">No</a>
+                </div>
+        </div>
+        <br> <br> <br>
+        <div role="main" class="ui-content" style="text-align: center;">
+           <h1 class="animated-heading">About</h1>
+            <p class="animated-heading" style="text-align: justify;">
+                Ang Tomgu Food and Drinks Menu ay isang digital na aplikasyon na idinisenyo upang ipakita ang iba’t ibang pagkaing at inuming inaalok ng Tomgu. Pinapadali ng app na ito para sa mga customer ang pag-browse sa isang maayos na naka-kategoriyang menu na kinabibilangan ng mga appetizer, pangunahing putahe, panghimagas, at inumin. Bawat item sa menu ay may kasamang deskripsyon, larawan, at presyo, upang matulungan ang mga gumagamit na makapili nang may sapat na impormasyon. Bagamat ang bersyon na ito ng app ay para sa viewing lamang, ito ay may malinaw at madaling gamitin na interface para sa mga customer na nais tuklasin ang mga inaalok na pagkain at inumin.
+            </p>
+        </div>
+        <script src="../includes/js/js/index.js"></script>
+        <script type="text/javascript">
+            // Toggle dark mode manually (if needed from elsewhere)
+            function toggleDarkMode() {
+                $('body').toggleClass('dark-mode');
+                if ($('body').hasClass('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+        
+            // Initialize and bind dark mode events
+            $(document).ready(function () {
+                // Apply saved theme on page load
+                if (localStorage.getItem('theme') === 'dark') {
+                    $('body').addClass('dark-mode');
+                }
+        
+                $(document).on('click', '#enableDarkMode', function () {
+                    $('body').addClass('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    $("#darkModePopup").popup("close"); // Close the popup
+                    closePanel();
+                });
+        
+                $(document).on('click', '#disableDarkMode', function () {
+                    $('body').removeClass('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    $("#darkModePopup").popup("close"); // Close the popup
+                    closePanel();
+                });
+            });
+        </script>
+        <script>
+            function toggleNavbar() {
+                var panel = $("#overlaypanel");
+                var icon = $("#menuIcon");
+                if (panel.hasClass("ui-panel-open")) {
+                    panel.panel("close");
+                    icon.removeClass("right");
+                } else {
+                    panel.panel("open");
+                    icon.addClass("right");
+                }
+            }
+            
+        
+            function closePanel() {
+                $("#overlaypanel").panel("close");
+                $("#menuIcon").removeClass("right");
+            }
+        
+            // Reset icon when panel closes manually
+            $(document).on("panelclose", "#overlaypanel", function() {
+                $("#menuIcon").removeClass("right");
+            });
+        </script>
+        
+    </div>
+</body>
+</html> 

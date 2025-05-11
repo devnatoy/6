@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="includes/css/css/themes/default/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="includes/css/css/themes/default/index.css"/>
+    <link rel="stylesheet" href="includes/css/css/themes/default/loader.css"/>
+    <script src="includes/js/jquery.js"></script>
+    <script src="includes/js/jquery.mobile-1.4.5.min.js"></script> 
+    <style>
+        /* body, .ui-page, .ui-content {
+            background-color: black !important;
+            color: white !important;
+        } */
+        .ui-btn1 {
+            border-radius: 20px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loader" class="loader-wrapper">
+    <svg viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="20"></circle>
+    </svg>
+</div>
+
+<div data-role="page">
+    <div data-role="header"></div>
+
+    <br><br>
+
+    <div role="main" class="ui-content" style="text-align: center;">
+        <h2 class="animated-heading">
+            Tomgu Food and Drinks Menu
+
+        </h2>
+        <a class="animated-heading" href="#popup" data-rel="popup" data-position-to="window" data-transition="fade">
+            <img src="includes/img/logo.png" height="200" width="200px" alt="">
+        </a>
+        <div data-role="popup" id="popup" data-overlay-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <img class="popphoto" src="includes/img/logo.png" style="max-height: 512px;">
+            <center><p>  Tomgu Food and Drinks Menu
+
+            </p></center>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div role="main" class="ui-content">
+        <center><p class="animated-heading"> Tomgu Food and Drinks Menu</p></center>
+
+        <button class="frutiger-button animated-heading" onclick="showLoader()">
+            <div class="inner">
+                <div class="top-white"></div>
+                <span class="text">Get Started</span>
+            </div>
+        </button>
+
+        <button class="frutiger-button animated-heading" id="exitConfirmButton">
+            <div class="inner">
+                <div class="top-white"></div>
+                <span class="text">Exit</span>
+            </div>
+        </button> 
+
+        <div data-role="popup" id="popupCloseRight" class="ui-content">
+            <p>Are you sure you want to Exit?</p>
+            <a href="#" id="exitButton" class="ui-btn ui-btn1" data-role="button" data-theme="a">Yes</a>
+            <a href="#" id="closePopup" class="ui-btn ui-btn1" data-role="button" data-theme="a">No</a>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h4 class="animated-heading">
+            Tomgu Food and Drinks Menu
+        </h4>
+    </div>
+</div>
+
+<script type="text/javascript" src="includes/js/custom.js"></script>
+<script src="includes/js/js/index.js"></script>
+<script>
+    function showLoader() {
+        $('#loader').fadeIn();
+        $('div[data-role="footer"]').hide(); // Hide the footer
+        setTimeout(function() {
+            window.location.href = 'data/home.html';
+        }, 3000); 
+    }
+
+    $(document).ready(function() {
+        $('#loader').hide();
+        $('div[data-role="footer"]').show(); // Show footer on page load
+    });
+</script>
+<script src="includes/js/js/index.js"></script>
+</body>
+</html>
